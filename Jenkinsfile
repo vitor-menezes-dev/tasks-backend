@@ -52,5 +52,13 @@ pipeline {
                 }
             }
         }
+         stage('Functional Test') {
+            steps {
+                dir('tasks-functional-test') {
+                    git credentialsId: 'github_login', url: 'https://github.com/vitor-menezes-dev/tasks-functional-test'
+                    bat 'mvn test'
+                }
+            }
+        }
     }
 }
