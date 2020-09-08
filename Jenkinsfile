@@ -1,9 +1,10 @@
+/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
     stages {
-        stage('Teste') {
+        stage('Build Backend') {
             steps {
-                echo 'Deu Certo'
+                mvn clean package -DskipTestes=true
             }
         }
     }
